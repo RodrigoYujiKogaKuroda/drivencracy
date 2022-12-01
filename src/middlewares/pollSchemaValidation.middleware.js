@@ -2,8 +2,6 @@ import { pollSchema } from "../models/poll.model.js";
 
 export function pollSchemaValidation(req, res, next) {
 
-    const now = new Date;
-
     const { title, expireAt } = req.body;
 
     if (!title) {
@@ -11,16 +9,11 @@ export function pollSchemaValidation(req, res, next) {
     }
 
     if (!expireAt) {
-        dateNow = now.getDate();
-        monthNow = now.getMonth() + 1;
-        yearNow = now.getFullYear();
+        const date = new Date();
+        date.setDate(date.getDate() + 30);
 
-        if (monthNow > 13) {
-            monthNow = monthNow - 12;
-            yearNow++;
-        }
-
-        expireAt = `${yearNow}-${MonthNow}-${dateNow} ${now.getHours()}:${now.getMinutes()}`;
+        console.log(date);
+        expireAt = date;
     }
 
     const question = {
@@ -35,5 +28,7 @@ export function pollSchemaValidation(req, res, next) {
         return res.status(400).send(errors);
     }
   
+    res.locals.question = question;
+
     next();
 }
