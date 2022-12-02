@@ -15,5 +15,4 @@ app.use(pollRoutes);
 app.use(choiceRoutes);
 app.use(voteRoutes);
 
-const port = 5000;
-app.listen(port, () => console.log(`Server running in port: ${port}`));
+app.listen(process.env.PORT, () => console.log("Server running on port " + process.env.PORT));
