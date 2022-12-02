@@ -16,7 +16,7 @@ export async function postQuestion (req, res) {
 export async function getQuestions (req, res) {
 
     try {
-        const questions = await pollCollection.find({}).toArray();
+        const questions = await pollCollection.find().toArray();
         res.send({ questions });
     } catch (err) {
         console.log(err);

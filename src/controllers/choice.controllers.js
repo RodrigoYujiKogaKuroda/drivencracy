@@ -21,7 +21,7 @@ export async function getAnswer (req, res) {
     try {
         const question = await pollCollection.findOne({ _id: new ObjectId(pollId) });
         if (!question) {
-          return res.sendStatus(404);
+            return res.sendStatus(404);
         }
 
         const answers = await choiceCollection.find({ pollId: pollId }).toArray();
