@@ -2,7 +2,7 @@ import { pollSchema } from "../models/poll.model.js";
 
 export function pollSchemaValidation(req, res, next) {
 
-    const { title, expireAt } = req.body;
+    let { title, expireAt } = req.body;
 
     if (!title) {
         res.sendStatus(422);
@@ -10,6 +10,7 @@ export function pollSchemaValidation(req, res, next) {
 
     if (!expireAt) {
         const date = new Date();
+        console.log(date);
         date.setDate(date.getDate() + 30);
 
         console.log(date);

@@ -1,5 +1,5 @@
 import Joi from "joi";
 
-export const voteSchema = joi.object({
+export const voteSchema = Joi.object({
 
 });

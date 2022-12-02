@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-export const pollSchema = joi.object({
+export const pollSchema = Joi.object({
     title: Joi.string().required(),
-	expireAt: Joi.date().format("YYYY-MM-DD HH:mm").required()
+	expireAt: Joi.date().required()
 });
