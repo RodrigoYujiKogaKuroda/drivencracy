@@ -25,7 +25,7 @@ export async function voteSchemaValidation(req, res, next) {
             choiceId: choice
         }
 
-        const { error } = voteSchema.validate(choice, { abortEarly: true });
+        const { error } = voteSchema.validate(vote, { abortEarly: true });
         if (error) {
             const errors = error.details.map((detail) => detail.message);
             return res.status(400).send(errors);
