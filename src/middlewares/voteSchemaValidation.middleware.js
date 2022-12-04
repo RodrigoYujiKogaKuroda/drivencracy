@@ -22,7 +22,7 @@ export async function voteSchemaValidation(req, res, next) {
 
         const vote = {
             createdAt: dateNow,
-            choiceId: choice
+            choiceId: choiceId
         }
 
         const { error } = voteSchema.validate(vote, { abortEarly: true });
