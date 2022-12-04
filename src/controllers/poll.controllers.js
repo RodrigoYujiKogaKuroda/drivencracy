@@ -17,7 +17,7 @@ export async function getQuestions (req, res) {
 
     try {
         const questions = await pollCollection.find().toArray();
-        res.send({ questions });
+        res.send(questions);
     } catch (err) {
         console.log(err);
         res.sendStatus(500);
