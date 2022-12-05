@@ -10,10 +10,7 @@ export function pollSchemaValidation(req, res, next) {
 
     if (!expireAt) {
         const date = new Date();
-        console.log(date);
         date.setDate(date.getDate() + 30);
-
-        console.log(date);
         expireAt = date;
     }
 
